@@ -1,0 +1,150 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Employee Home page</title>
+    <script src="emp.js"></script>
+    <link rel="stylesheet" href="emp.css">
+</head>
+<body>
+    <div class="sidebar">
+        <a href="#Home" onclick="showPage('Home-emp')">Products</a>
+        <a href="#Deliveries" onclick="showPage('Deliveries')">Deliveries</a>
+        
+        <a href="#Profile" onclick="showPage('Profile-emp')">Profile</a>
+    </div>
+
+    <div class="main-content">
+        <div id="Home-emp" class="page">
+            <h1>Manage inventory</h1>
+            <div class="container">
+                
+        
+                <div class="category" onclick="fetchCategory('Energy Drinks')">
+                    <img src="images/enery_drinks.jpg" alt="Energy Drinks">
+                    <div class="category-title">Energy Drinks</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Sweets')">
+                    <img src="images/Sweets.jpg" alt="Sweets">
+                    <div class="category-title">Sweets</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Snacks')">
+                    <img src="images/snacks.jpg" alt="Snacks">
+                    <div class="category-title">Snacks</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Coldrinks')">
+                    <img src="images/drinks.jpg" alt="Coldrinks">
+                    <div class="category-title">Coldrinks</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Chocolate')">
+                    <img src="images/choco;.jpg" alt="Chocolate">
+                    <div class="category-title">Chocolate</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Ice Cream')">
+                    <img src="images/Ice_cream.jpg" alt="Ice Cream">
+                    <div class="category-title">Ice Cream</div>
+                </div>
+                
+            </div>
+
+
+        </div>
+
+        <div id = "Product" class="page hidden">
+            <div id="items-list" class="grid-container">
+                <!-- The list of snacks will be rendered here -->
+            </div>
+        </div>
+
+      
+
+
+        <div id="Deliveries" class="page hidden">
+            <h1>Deliveries  Page</h1>
+            <p>This is where you can view your deliveries.</p>
+        </div>
+
+
+
+
+
+
+        <!-- Page to update availability -->
+         <div id ='Availability' class="page hidden">
+                <h1>Availability Page</h1>
+                <div class="availability-container">
+                    <div class="availability-status">Availability: <span id="availability-text">Available</span></div>
+                    <label class="switch">
+                        <input type="checkbox" id="availability-switch" checked>
+                        <span class="slider"></span>
+                    </label>
+                    <div class="date-time-picker" id="date-time-picker">
+                        <label for="return-time">Estimated Time of Return:</label>
+                        <input type="datetime-local" id="return-time">
+                        <button class="save-button" onclick="saveReturnTime()">Save</button>
+                    </div>
+                </div>
+         </div>
+        
+
+
+
+        <div id="Profile-emp" class="page hidden">
+            <h1>Profile  Page</h1>
+            <p>This is where you can see your profile.</p>
+            <div class="container">
+                <div class="card">
+                    <strong>Orders</strong>
+                   
+                </div>
+
+                <div class="card">
+                    <strong>Availability</strong>
+                    <a onclick="showPage('Availability')">Change your Availability Status</a>
+                </div>
+
+                <div class="card">
+                    <strong>Help</strong>
+                    <a href="">Help Center</a>
+
+                </div>
+
+                <div class="card">
+                    <strong>Privacy</strong>
+                    <a href=""> Our Privacy Policy</a>
+
+                </div>
+
+                <div class="card">
+                    <strong>About</strong>
+                    <a href="">About us</a>
+                   
+
+                </div>
+
+
+
+
+
+            </div>
+            
+
+
+        </div>
+    </div>
+
+
+
+    <footer>
+        <p>
+        Sphaza Samanyora by Our Team 2024
+        </p>
+    </footer>
+</body>
+</html>

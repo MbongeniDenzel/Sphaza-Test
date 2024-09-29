@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sidebar Navigation Example</title>
+    <link rel="stylesheet" href="create_order.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:opsz,wght,FILL,GRAD@20..48,100..700,0..1,-50..200" />
+    <script src="create_order.js"></script>
+</head>
+<body>
+
+    <div class="sidebar">
+        <a href="#Home" onclick="showPage('Home')">Home</a>
+        <a href="#Search" onclick="showPage('Search')">Search</a>
+        <a href="#cart" onclick="cart_items()" >Cart</a>
+        <a href="#Profile" onclick="showPage('Profile')">Profile</a>
+    </div>
+
+    <div class="main-content">
+        <div id="Home" class="page">
+            <h1>Order Page</h1>
+            <p>This is where you can place your orders.</p>
+            <input type="text" name="search" placeholder="Search..">
+            
+            
+            <div class="container">
+                
+        
+                <div class="category" onclick="fetchCategory('Energy Drinks')">
+                    <img src="images/enery_drinks.jpg" alt="Energy Drinks">
+                    <div class="category-title">Energy Drinks</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Sweets')">
+                    <img src="images/Sweets.jpg" alt="Sweets">
+                    <div class="category-title">Sweets</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Snacks')">
+                    <img src="images/snacks.jpg" alt="Snacks">
+                    <div class="category-title">Snacks</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Coldrinks')">
+                    <img src="images/drinks.jpg" alt="Coldrinks">
+                    <div class="category-title">Coldrinks</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Chocolate')">
+                    <img src="images/choco;.jpg" alt="Chocolate">
+                    <div class="category-title">Chocolate</div>
+                </div>
+                
+                <div class="category" onclick="fetchCategory('Ice Cream')">
+                    <img src="images/Ice_cream.jpg" alt="Ice Cream">
+                    <div class="category-title">Ice Cream</div>
+                </div>
+                
+            </div>
+
+
+        </div>
+
+
+
+        <div id = "Snac" class="page hidden">
+            <div id="items-list" class="grid-container">
+                <!-- The list of snacks will be rendered here -->
+            </div>
+        </div>
+
+
+
+        <div id="Search" class="page hidden">
+            <h1>Profile Page</h1>
+            <p>This is where you can view and edit your profile.</p>
+        </div>
+
+
+
+        <div id="prev-orders"  class="page hidden">
+            <div class="order-feedback">
+                <h3>Order Date: 12 Apr 2024, 20:14</h3>
+                <div id="order-list" class="grid-container">
+                    <!-- The list of snacks will be rendered here -->
+                </div>
+                <p><strong>Delivery by:</strong> Amigo</p>
+                <p id="orderNum"> Order Numbers</p>
+            
+                <h4>Rate:</h4>
+                <div class="star-rating">
+                    <span class="star" data-value="1">&#9733;</span>
+                    <span class="star" data-value="2">&#9733;</span>
+                    <span class="star" data-value="3">&#9733;</span>
+                    <span class="star" data-value="4">&#9733;</span>
+                    <span class="star" data-value="5">&#9733;</span>
+                </div>
+            
+                <h4>Comments:</h4>
+                <textarea id="feedback-comments" rows="4" placeholder="Write your comments here..."></textarea>
+                
+                <button id="submit-feedback" class="submit-btn">Submit Feedback</button>
+            </div>
+            
+
+
+        </div>
+
+
+
+        <div id="Cart" class="page hidden" >
+            <h1>Cart Page</h1>
+            <p>This is where you can view the items in your cart.</p>
+            <div id="cart-items" class="grid-container">
+                <!-- The list of snacks will be rendered here -->
+                 <p>you do not have any items in your cart</p>
+                 
+            </div>
+            <div id="checkout-button" style="display: none;" class="checkout-button-container">
+                <button class="checkout-button">Checkout</button>
+            </div>
+            
+
+            <div id="cart-options-container" style="display: none;">
+                <div class="cart-options">
+                    <!-- Payment Method Section -->
+                    <div class="option-box payment-method">
+                        <h3>Select Payment Method:</h3>
+                        <label>
+                            <input type="radio" name="payment" value="cash">
+                            Cash
+                        </label>
+                        <label>
+                            <input type="radio" name="payment" value="card">
+                            Card
+                        </label>
+                    </div>
+            
+                    <!-- Delivery Method Section -->
+                    <div class="option-box delivery-method">
+                        <h3>Select Delivery Method:</h3>
+                        <label>
+                            <input type="radio" name="delivery" value="collect">
+                            Collect
+                        </label>
+                        <label>
+                            <input type="radio" name="delivery" value="delivery">
+                            Delivery
+                        </label>
+                    </div>
+                    
+                </div>
+            </div>
+            
+            
+
+        </div>
+
+
+
+
+        
+        <div id="Orders-page" class="page hidden">
+            <h1>Yours Orders</h1>
+            <p>This is where you can view your orders to give feedback.</p>
+            <div id="order-page-items" class="grid-container-pages">
+                <!-- The list of snacks will be rendered here -->
+                 
+                 
+            </div>
+        </div>
+
+
+
+        <div id="Profile" class="page hidden">
+            <h1>Profile  Page</h1>
+            <p>This is where you can see your profile.</p>
+            <div class="container">
+                <div class="card">
+                    <strong>Orders</strong>
+                    <a onclick="showOrders()">My Orders</a>
+                    <a href="">Invoices</a>
+                    <a href=""></a>
+                </div>
+
+                <div class="card">
+                    <strong>Payments</strong>
+                    <a href="">Credits and refunds</a>
+                    <a href="">Redeem Gift Voucher</a>
+                </div>
+
+                <div class="card">
+                    <strong>Help</strong>
+                    <a href="">Help Center</a>
+
+                </div>
+
+                <div class="card">
+                    <strong>Privacy</strong>
+                    <a href=""> Our Privacy Policy</a>
+                    <a href="">About us</a>
+
+                </div>
+
+                <div class="card">
+                    <strong>Profile</strong>
+                    <a href="">Personal Details</a>
+                    <a href="">Security Settings</a>
+                    <a href="">Specials and Discounts Subscriptions</a>
+
+                </div>
+
+
+
+
+
+            </div>
+            
+
+
+        </div>
+    </div>
+
+    
+    
+</body>
+<footer>
+        <p>
+        Spaza Sa Manyora by <STROng>DevelopingUp</STROng>
+        </p>
+    </footer>
+
+</html>
+
+
