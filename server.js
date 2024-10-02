@@ -3,7 +3,7 @@ const mysql = require('mysql2');
 const cors = require('cors');
 const { log, Console } = require('console');
 const app = express();
-const port = process.env.port|| 3000;
+const port = process.env.port|| 33;
 const path = require('path');
 const http = require('http');
 
@@ -17,16 +17,22 @@ app.use(cors());
 app.use(express.json());
 
 //const cart = require('./public/cart.json');
+require('dotenv').config();
 
 app.use(express.static('src'));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-// Create a MySQL connection
+//reate a MySQL connection
 const db = mysql.createConnection({
-    host: 'localhost', // Your MySQL host
-    user: 'root', // Your MySQL username
-    password: 'Denzel@mm2001', // Your MySQL password
-    database: 'Spaza' // Your MySQL database name
+    host: process.env.DATABASE_HOST,
+    user: process.env.DATABASE_USER,
+    password: process.env.DATABASE_PASSWORD,
+    database: process.env.DATABASE_NAME,                            // MySQL database name
+    port: 3306,
+    ssl: {
+    //ca: fs.readFileSync('Sphaza-Test\\DigiCertGlobalRootCA.crt.pem'),
+        rejectUnauthorized: true
+    }                                               // MySQL port (default is 3306)
 });
 
 // Connect to MySQL

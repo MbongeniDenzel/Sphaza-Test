@@ -1,7 +1,13 @@
 {
   "name": "vanilla-basic",
   "version": "1.0.0",
-  "scripts": { 
+  "scripts": {
     "start": "sirv ./src public --cors --single --no-clear --port 8000"
+  },
+  "dependencies": {
+    "cors": "^2.8.5",
+    "dotenv": "^16.4.5",
+    "express": "^4.21.0",
+    "mysql2": "^3.11.3"
   }
 }
